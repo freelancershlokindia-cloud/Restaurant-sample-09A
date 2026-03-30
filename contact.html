@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | The Sample One</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">The Sample <span>One</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="cart-icon" id="cart-icon-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <i class="fas fa-times close-cart" id="close-cart"></i>
+    </div>
+    <div class="cart-items" id="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total-price">₹0</span>
+      </div>
+      <button class="btn" id="checkout-btn" style="width: 100%;">Order on WhatsApp <i class="fab fa-whatsapp"></i></button>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top: 120px;">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-subtitle">Get in Touch</span>
+        <h2 class="section-title">Contact Us</h2>
+      </div>
+
+      <div class="contact-wrapper reveal" style="margin-top: 3rem;">
+        <div>
+          <h3>Visit Us</h3>
+          <p style="margin: 1rem 0; color: #666;">
+            <i class="fas fa-map-marker-alt" style="color: var(--primary); width: 20px;"></i> 
+            Main Road, Near Nucleus Mall, Ranchi, Jharkhand 834001
+          </p>
+          <p style="margin: 1rem 0; color: #666;">
+            <i class="fas fa-phone" style="color: var(--primary); width: 20px;"></i> 
+            +91 98765 43210
+          </p>
+          <p style="margin: 1rem 0; color: #666;">
+            <i class="fas fa-envelope" style="color: var(--primary); width: 20px;"></i> 
+            hello@thesampleone.com
+          </p>
+
+          <div style="margin-top: 2rem; border-radius: var(--radius); overflow: hidden;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117180.40742183209!2d85.2505678!3d23.363177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e104aa5dce5f%3A0x74cae366b040c1fa!2sRanchi%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        
+        <div>
+          <h3>Send a Message</h3>
+          <form onsubmit="event.preventDefault(); alert('Message sent!'); this.reset();" style="margin-top: 1.5rem;">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 The Sample One, Ranchi. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews | The Sample One</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">The Sample <span>One</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="cart-icon" id="cart-icon-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <i class="fas fa-times close-cart" id="close-cart"></i>
+    </div>
+    <div class="cart-items" id="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total-price">₹0</span>
+      </div>
+      <button class="btn" id="checkout-btn" style="width: 100%;">Order on WhatsApp <i class="fab fa-whatsapp"></i></button>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top: 120px;">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-subtitle">Testimonials</span>
+        <h2 class="section-title">What Our Guests Say</h2>
+      </div>
+
+      <div class="grid reveal" style="margin-top: 3rem;">
+        <div class="food-card" style="padding: 2rem;">
+          <div style="color: var(--primary); margin-bottom: 1rem;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="food-desc">"The best Butter Chicken I've had in Ranchi. The ambiance is incredibly premium and the service is top-notch."</p>
+          <h4 style="margin-top: 1rem;">- Rahul S.</h4>
+        </div>
+        
+        <div class="food-card" style="padding: 2rem;">
+          <div style="color: var(--primary); margin-bottom: 1rem;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="food-desc">"Flawless ordering process through WhatsApp. Food arrived hot and the Biryani was exceptionally flavorful."</p>
+          <h4 style="margin-top: 1rem;">- Priya M.</h4>
+        </div>
+      </div>
+
+      <div class="contact-wrapper reveal" style="margin-top: 5rem; max-width: 600px; margin-left: auto; margin-right: auto; grid-template-columns: 1fr;">
+        <div class="text-center">
+          <h3>Leave a Review</h3>
+        </div>
+        <form onsubmit="event.preventDefault(); alert('Review submitted successfully!'); this.reset();">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="4" placeholder="Your Feedback" required></textarea>
+          </div>
+          <button type="submit" class="btn" style="width: 100%;">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 The Sample One, Ranchi. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <script src="script.js"></script>
+</body>
+</html>

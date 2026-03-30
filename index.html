@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sample One | Premium Dining in Ranchi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">The Sample <span>One</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="cart-icon" id="cart-icon-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <i class="fas fa-times close-cart" id="close-cart"></i>
+    </div>
+    <div class="cart-items" id="cart-items-container">
+      </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total-price">₹0</span>
+      </div>
+      <button class="btn" id="checkout-btn" style="width: 100%;">Order on WhatsApp <i class="fab fa-whatsapp"></i></button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Taste the <span>Extraordinary</span> in Ranchi</h1>
+      <p>Experience authentic Indian flavors crafted with passion and premium ingredients.</p>
+      <a href="menu.html" class="btn">Explore Menu</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-subtitle">Our Specials</span>
+        <h2 class="section-title">Featured Delights</h2>
+      </div>
+      
+      <div class="grid reveal" style="margin-top: 3rem;">
+        <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&q=80" alt="Biryani" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Nizami Dum Biryani</h3>
+            <p class="food-desc">Slow-cooked aromatic basmati rice layered with marinated tender mutton.</p>
+            <div class="food-footer">
+              <span class="price">₹450</span>
+              <button class="btn btn-outline" onclick="addToCart('m1', 'Nizami Dum Biryani', 450)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80" alt="Paneer Tikka" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Smoked Paneer Tikka</h3>
+            <p class="food-desc">Cottage cheese cubes marinated in rich spices and roasted in a tandoor.</p>
+            <div class="food-footer">
+              <span class="price">₹320</span>
+              <button class="btn btn-outline" onclick="addToCart('m2', 'Smoked Paneer Tikka', 320)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80" alt="Butter Chicken" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Classic Butter Chicken</h3>
+            <p class="food-desc">Charcoal-grilled chicken simmered in a creamy, velvety tomato gravy.</p>
+            <div class="food-footer">
+              <span class="price">₹480</span>
+              <button class="btn btn-outline" onclick="addToCart('m4', 'Classic Butter Chicken', 480)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>The Sample One</h3>
+          <p>Premium dining experience redefining the culinary landscape of Ranchi, Jharkhand.</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="menu.html">Order Online</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 The Sample One, Ranchi. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <script src="script.js"></script>
+</body>
+</html>

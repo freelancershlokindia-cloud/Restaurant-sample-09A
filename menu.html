@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | The Sample One</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">The Sample <span>One</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="cart-icon" id="cart-icon-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <i class="fas fa-times close-cart" id="close-cart"></i>
+    </div>
+    <div class="cart-items" id="cart-items-container"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total-price">₹0</span>
+      </div>
+      <button class="btn" id="checkout-btn" style="width: 100%;">Order on WhatsApp <i class="fab fa-whatsapp"></i></button>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top: 100px;">
+    <div class="container">
+      <div class="text-center reveal">
+        <h1 class="section-title">Our Menu</h1>
+        <p style="margin-bottom: 2rem;">Discover our crafted delicacies.</p>
+        
+        <input type="text" id="menu-search" class="search-bar" placeholder="Search for dishes...">
+        
+        <div class="menu-controls" style="margin-top: 2rem;">
+          <button class="btn filter-btn" data-filter="all">All</button>
+          <button class="btn-outline filter-btn" data-filter="veg">Veg</button>
+          <button class="btn-outline filter-btn" data-filter="non-veg">Non-Veg</button>
+        </div>
+      </div>
+
+      <div class="grid reveal" id="menu-grid">
+        
+        <div class="food-card menu-item-card" data-category="non-veg">
+          <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&q=80" alt="Biryani" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Nizami Dum Biryani</h3>
+            <p class="food-desc">Slow-cooked aromatic basmati rice layered with marinated tender mutton.</p>
+            <div class="food-footer">
+              <span class="price">₹450</span>
+              <button class="btn btn-outline" onclick="addToCart('m1', 'Nizami Dum Biryani', 450)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80" alt="Paneer Tikka" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Smoked Paneer Tikka</h3>
+            <p class="food-desc">Cottage cheese cubes marinated in rich spices and roasted in a tandoor.</p>
+            <div class="food-footer">
+              <span class="price">₹320</span>
+              <button class="btn btn-outline" onclick="addToCart('m2', 'Smoked Paneer Tikka', 320)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&q=80" alt="Dal Makhani" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Signature Dal Makhani</h3>
+            <p class="food-desc">Overnight simmered black lentils finished with fresh cream and butter.</p>
+            <div class="food-footer">
+              <span class="price">₹280</span>
+              <button class="btn btn-outline" onclick="addToCart('m3', 'Signature Dal Makhani', 280)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="non-veg">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80" alt="Butter Chicken" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Classic Butter Chicken</h3>
+            <p class="food-desc">Charcoal-grilled chicken simmered in a creamy, velvety tomato gravy.</p>
+            <div class="food-footer">
+              <span class="price">₹480</span>
+              <button class="btn btn-outline" onclick="addToCart('m4', 'Classic Butter Chicken', 480)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1628296582102-40f47e307775?auto=format&fit=crop&q=80" alt="Soya Chaap" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Tandoori Soya Chaap</h3>
+            <p class="food-desc">Protein-rich soya chunks marinated in yogurt and tandoori spices.</p>
+            <div class="food-footer">
+              <span class="price">₹260</span>
+              <button class="btn btn-outline" onclick="addToCart('m5', 'Tandoori Soya Chaap', 260)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80" alt="Dahi Kebab" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Dahi Ke Kebab</h3>
+            <p class="food-desc">Melt-in-mouth patties made with hung curd and delicate spices.</p>
+            <div class="food-footer">
+              <span class="price">₹250</span>
+              <button class="btn btn-outline" onclick="addToCart('m6', 'Dahi Ke Kebab', 250)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="non-veg">
+          <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80" alt="Chicken Tikka" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Murgh Tikka</h3>
+            <p class="food-desc">Spicy, juicy boneless chicken pieces roasted to perfection.</p>
+            <div class="food-footer">
+              <span class="price">₹350</span>
+              <button class="btn btn-outline" onclick="addToCart('m7', 'Murgh Tikka', 350)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="non-veg">
+          <img src="https://images.unsplash.com/photo-1610057099443-fde26002f5a0?auto=format&fit=crop&q=80" alt="Seekh Kebab" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Mutton Seekh Kebab</h3>
+            <p class="food-desc">Minced mutton skewers blended with royal herbs and grilled.</p>
+            <div class="food-footer">
+              <span class="price">₹420</span>
+              <button class="btn btn-outline" onclick="addToCart('m8', 'Mutton Seekh Kebab', 420)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="non-veg">
+          <img src="https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?auto=format&fit=crop&q=80" alt="Fish Fry" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Amritsari Fish Fry</h3>
+            <p class="food-desc">Crispy, gram-flour coated fish fillets with a tangy edge.</p>
+            <div class="food-footer">
+              <span class="price">₹380</span>
+              <button class="btn btn-outline" onclick="addToCart('m9', 'Amritsari Fish Fry', 380)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&q=80" alt="Crispy Corn" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Crispy Corn Basket</h3>
+            <p class="food-desc">Golden fried sweet corn tossed with bell peppers and pepper.</p>
+            <div class="food-footer">
+              <span class="price">₹220</span>
+              <button class="btn btn-outline" onclick="addToCart('m10', 'Crispy Corn Basket', 220)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc0?auto=format&fit=crop&q=80" alt="Kadhai Paneer" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Kadhai Paneer</h3>
+            <p class="food-desc">Cottage cheese cooked with crushed coriander and bell peppers.</p>
+            <div class="food-footer">
+              <span class="price">₹340</span>
+              <button class="btn btn-outline" onclick="addToCart('m11', 'Kadhai Paneer', 340)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80" alt="Malai Kofta" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Malai Kofta</h3>
+            <p class="food-desc">Potato and paneer dumplings in a rich, sweet, creamy cashew gravy.</p>
+            <div class="food-footer">
+              <span class="price">₹310</span>
+              <button class="btn btn-outline" onclick="addToCart('m12', 'Malai Kofta', 310)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80" alt="Pindi Chhole" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Pindi Chhole</h3>
+            <p class="food-desc">Spicy and tangy chickpeas slow-cooked in traditional Punjabi style.</p>
+            <div class="food-footer">
+              <span class="price">₹260</span>
+              <button class="btn btn-outline" onclick="addToCart('m13', 'Pindi Chhole', 260)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80" alt="Palak Paneer" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Palak Paneer</h3>
+            <p class="food-desc">Fresh spinach purée cooked with garlic and soft paneer cubes.</p>
+            <div class="food-footer">
+              <span class="price">₹320</span>
+              <button class="btn btn-outline" onclick="addToCart('m14', 'Palak Paneer', 320)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80" alt="Mushroom Masala" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Mushroom Masala</h3>
+            <p class="food-desc">Button mushrooms tossed in a robust onion-tomato masala.</p>
+            <div class="food-footer">
+              <span class="price">₹300</span>
+              <button class="btn btn-outline" onclick="addToCart('m15', 'Mushroom Masala', 300)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="non-veg">
+          <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&q=80" alt="Rogan Josh" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Mutton Rogan Josh</h3>
+            <p class="food-desc">Kashmiri delicacy of tender mutton cooked in aromatic fennel broth.</p>
+            <div class="food-footer">
+              <span class="price">₹520</span>
+              <button class="btn btn-outline" onclick="addToCart('m16', 'Mutton Rogan Josh', 520)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="non-veg">
+          <img src="https://images.unsplash.com/photo-1565557612140-571f31f9d5ce?auto=format&fit=crop&q=80" alt="Chicken Lababdar" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Chicken Lababdar</h3>
+            <p class="food-desc">Rich, creamy chicken curry with a slight hint of sweetness.</p>
+            <div class="food-footer">
+              <span class="price">₹460</span>
+              <button class="btn btn-outline" onclick="addToCart('m17', 'Chicken Lababdar', 460)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="non-veg">
+          <img src="https://images.unsplash.com/photo-1610057099443-fde26002f5a0?auto=format&fit=crop&q=80" alt="Bhuna Gosht" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Bhuna Gosht</h3>
+            <p class="food-desc">Dry roasted mutton with caramelized onions and whole spices.</p>
+            <div class="food-footer">
+              <span class="price">₹540</span>
+              <button class="btn btn-outline" onclick="addToCart('m18', 'Bhuna Gosht', 540)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="non-veg">
+          <img src="https://images.unsplash.com/photo-1626779421115-4e78a2e58eeb?auto=format&fit=crop&q=80" alt="Fish Curry" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Goan Fish Curry</h3>
+            <p class="food-desc">Coastal favorite made with coconut milk and tamarind base.</p>
+            <div class="food-footer">
+              <span class="price">₹450</span>
+              <button class="btn btn-outline" onclick="addToCart('m19', 'Goan Fish Curry', 450)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1626779344453-61b471a4f0b8?auto=format&fit=crop&q=80" alt="Veg Biryani" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Veg Dum Biryani</h3>
+            <p class="food-desc">Seasonal vegetables layered with saffron rice, served with raita.</p>
+            <div class="food-footer">
+              <span class="price">₹350</span>
+              <button class="btn btn-outline" onclick="addToCart('m20', 'Veg Dum Biryani', 350)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1539755530862-00f623c00f52?auto=format&fit=crop&q=80" alt="Jeera Rice" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Jeera Rice</h3>
+            <p class="food-desc">Premium basmati rice tempered with ghee and cumin seeds.</p>
+            <div class="food-footer">
+              <span class="price">₹180</span>
+              <button class="btn btn-outline" onclick="addToCart('m21', 'Jeera Rice', 180)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1565557612140-571f31f9d5ce?auto=format&fit=crop&q=80" alt="Garlic Naan" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Garlic Naan</h3>
+            <p class="food-desc">Soft Indian flatbread infused with garlic and topped with butter.</p>
+            <div class="food-footer">
+              <span class="price">₹80</span>
+              <button class="btn btn-outline" onclick="addToCart('m22', 'Garlic Naan', 80)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1625398407796-a29b22837bf4?auto=format&fit=crop&q=80" alt="Butter Roti" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Tandoori Butter Roti</h3>
+            <p class="food-desc">Whole wheat bread baked in a clay oven, glazed with butter.</p>
+            <div class="food-footer">
+              <span class="price">₹40</span>
+              <button class="btn btn-outline" onclick="addToCart('m23', 'Tandoori Butter Roti', 40)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc8?auto=format&fit=crop&q=80" alt="Gulab Jamun" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Gulab Jamun (2 Pcs)</h3>
+            <p class="food-desc">Deep-fried milk dumplings soaked in cardamom-flavored sugar syrup.</p>
+            <div class="food-footer">
+              <span class="price">₹150</span>
+              <button class="btn btn-outline" onclick="addToCart('m24', 'Gulab Jamun', 150)">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card menu-item-card" data-category="veg">
+          <img src="https://images.unsplash.com/photo-1551024506-0cb9a1c20c04?auto=format&fit=crop&q=80" alt="Rasmalai" class="food-img" loading="lazy">
+          <div class="food-content">
+            <h3 class="food-title">Saffron Rasmalai</h3>
+            <p class="food-desc">Spongy cottage cheese discs served in thickened, sweetened milk.</p>
+            <div class="food-footer">
+              <span class="price">₹180</span>
+              <button class="btn btn-outline" onclick="addToCart('m25', 'Saffron Rasmalai', 180)">Add</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 The Sample One, Ranchi. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <script src="script.js"></script>
+</body>
+</html>
